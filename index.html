@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body {
+    background: linear-gradient(to right, #0f2027, #203a4c, #2c5364);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #61dafb;
+}
+
+#clock {
+    font-size: 3em;
+    background: rgba(40, 44, 52, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: Animation 20s infinite alternate;
+}
+
+@keyframes Animation {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(3);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(2); 
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <div id="clock">
+    </div>
+
+    <script>
+        var clock = document.getElementById("clock");
+
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            var time = hours + ":" + minutes + ":" + seconds;
+
+            clock.innerHTML = time;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

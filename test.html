@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Time</title>
+  <style>
+    #clock {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var timeString = hours + ':' + minutes + ':' + seconds;
+
+      document.getElementById('clock').innerText = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime(); // Initial call to display time immediately
+  </script>
+</body>
+</html>
